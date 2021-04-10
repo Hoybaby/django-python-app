@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-    return HttpResponse('<h1>Blog About</h1>')
+    return render(request, 'blog/home.html')
     # third paramater could be placed which is context, a way to pass information into our template
 
 def about(request):
