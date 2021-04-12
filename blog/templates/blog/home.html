@@ -11,7 +11,15 @@
 <title>Python Blog</title>
 </head>
 <body>
-    <h1>Blog Home</h1>
+    <!-- using Jinja notation to write code -->
+    <!-- this post is the key for the dictionary i created in my  -->
+    {% for post in posts %}
+        <h1>{{post.title}}</h1>
+        <p>By {{post.author}} on {{ post.date_posted}}</p>
+        <p>{{post.content}}</p>
+    {% endfor %}
+
+    <!-- need to make sure we end the for loop which we did -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js"></script>
