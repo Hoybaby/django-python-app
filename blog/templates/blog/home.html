@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+{% extends "blog/base.html" %}
 
-{% if title %}
-    <title>Django Blog - {{title}}</title>
-{% else %}
-    <title>Django Blog</title>
-{% endif %}
-
-<!-- <title>Python Blog</title> -->
-</head>
-<body>
+    {% block content%}
     <!-- using Jinja notation to write code -->
     <!-- this post is the key for the dictionary i created in my  -->
     {% for post in posts %}
-        <h1>{{post.title}}</h1>
-        <p>By {{post.author}} on {{ post.date_posted}}</p>
-        <p>{{post.content}}</p>
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ post.author }}</a>
+                <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+            </div>
+        </article>
     {% endfor %}
+
+    {%  endblock content %}
 
     <!-- need to make sure we end the for loop which we did -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js"></script>
-</body>
-</html>
+>
