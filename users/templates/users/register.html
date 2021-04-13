@@ -1,0 +1,35 @@
+
+{% extends "blog/base.html" %}
+<!-- bootstrap is being included from the base html so that is why you can use form-group, a bootstrap class -->
+
+{% block content%}
+<!-- using Jinja notation to write code -->
+<!-- this post is the key for the dictionary i created in my  -->
+    <div class="content-section">
+        <form method="POST">
+            <!-- this token is needed by django to make sure that the form is protected -->
+            {% csrf_token %}
+            <fieldset class ="form-group">
+                <legend class ="border-bottom mb-4"> Join Today</legend>
+                {{ form }}
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a class="ml-2" href="#"> Sign in</a>
+            </small>
+        </div>
+    
+    </div>
+{%  endblock content %}
+
+<!-- need to make sure we end the for loop which we did -->
+
+
+
+
