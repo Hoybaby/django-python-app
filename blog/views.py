@@ -5,20 +5,7 @@ from .models import Post
 # Create your views here.
 
 # posts is a dictionary to test some data input
-posts = [
-    {
-        'author': 'Michael Bartek',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'April 12, 2021'
-    },
-    {
-        'author': 'Stephany Benitez',
-        'title': 'Blog Post 2',
-        'content': '2nd post content',
-        'date_posted': 'April 12, 2021'
-    }
-]
+
 
 def home(request):
     context = {
