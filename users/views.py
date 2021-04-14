@@ -20,6 +20,6 @@ def register(request):
 
 
 def profile(request):
-    return render(reques, 'users/profile.html')
+    return render(request, 'users/profile.html')
 
 
