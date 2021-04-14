@@ -1,5 +1,6 @@
 
 {% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
 <!-- bootstrap is being included from the base html so that is why you can use form-group, a bootstrap class -->
 
 {% block content%}
@@ -12,7 +13,7 @@
             <fieldset class ="form-group">
                 <legend class ="border-bottom mb-4"> Join Today</legend>
                 <!-- the .as_p will render the form in paragraph tags which helps us on spacing -->
-                {{ form.as_p}}
+                {{ form|crispy}}
 
             </fieldset>
             <div class="form-group">
