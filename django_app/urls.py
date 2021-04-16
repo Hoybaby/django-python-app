@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from users import views as user_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 # the include will help tell django which will go to the blog urls
 # any time you import views, we are importing mutiple views into these urls so we want to say as something else
 # line 27 and 28 are classed based views
@@ -32,4 +35,5 @@ urlpatterns = [
 
 ]
 
-
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
