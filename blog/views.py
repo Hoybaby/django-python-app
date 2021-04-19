@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Post
 
 # from django.http import HttpResponse
@@ -39,8 +39,22 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user   
         return super().form_valid(form)
 
-
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ['title', 'content']
     
+    # the form we are trying to submit, take the instance and make the author the current logged in user
+    def form_valid(self,form):
+        form.instance.author = self.request.user   
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
+
 def about(request):
     # have to take in a request
     return render(request, 'blog/about.html', {'title': 'About'})
