@@ -5,12 +5,14 @@
     <!-- this post is the key for the dictionary i created in my  -->
     {% for post in posts %}
         <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
             <div class="media-body">
             <div class="article-metadata">
                 <a class="mr-2" href="#">{{ post.author }}</a>
                 <small class="text-muted">{{ post.date_posted }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <!-- by having the post.id, it will pass that in into our urls.py. for the pk -->
             <p class="article-content">{{ post.content }}</p>
             </div>
         </article>

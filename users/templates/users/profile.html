@@ -10,5 +10,20 @@
         </div>
     </div>
     <!-- FORM HERE -->
+    <!-- without the exntype, it wont actually be saving the image -->
+    <form method="POST" enctype="multipart/form-data">
+        <!-- this token is needed by django to make sure that the form is protected -->
+        {% csrf_token %}
+        <fieldset class ="form-group">
+            <legend class ="border-bottom mb-4"> Profile Info</legend>
+            <!-- the .as_p will render the form in paragraph tags which helps us on spacing -->
+            {{ u_form|crispy}}
+            {{ p_form|crispy}}
+
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+    </form>
 </div>
 {% endblock content %}
