@@ -44,7 +44,7 @@ The license that is being used is MIT. Can be found in the license folder.
 ## Tests
 Need to make sure to NOT BE IN GIT BASH in the terminal. THank you
 
-To test, run the following command: To run the program, make sure you are in the virtual enviroment by running .\venv\Scripts\activate then running the command py -m flask run.
+To test, run the following command: To run the program, you have to do the command py manage.py runserver. This will launch the backend which is the crux of the whole application
 
 ## Process
  
